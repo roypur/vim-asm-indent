@@ -26,7 +26,10 @@ function! GetAsmIndent()
   if line =~ '^\s*\k\+:'
     let ind = 0
   endif
-
+  " If the line starts with a ".", then don't indent
+  if line =~ '^\s*\.\k'
+    let ind = 0
+  endif
   return ind
 endfunction
 
